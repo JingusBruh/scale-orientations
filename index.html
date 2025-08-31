@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Orientations</title>
+    <link rel="icon" type="image/x-icon" href="Icons/Icon.png">
 </head>
 <script src="code.js"></script>
-<body>
-    <h3>Scale Orientations</h3>
-    <div style = "background-color: bisque;">
+<body style = background-color:azure>
+    
+    <img src = "Icons/Icon.png" width="30px" height="30px" style = "float:left"> 
+    <h3 style = "font-family:Arial, Helvetica, sans-serif;">Scale Orientations</h3>
+
+    <div style = "background-color:rgb(200, 245, 245);">
         <input type = "checkbox" id = "variations">
         <label for = "variations">Variations</label><br>
         
@@ -16,10 +20,12 @@
         <label for = "triplet variations">Triplet Variations</label><br>
         
         <input type = "checkbox" id = "chromatic">
-        <label for = "chromatic">Chromatic</label><br>
+        <label for = "chromatic">Chromatic</label>
+        
     </div>
-    <button type = "button" onclick = "Generate()">Generate</button>
-    <p id = "displayText"></p>
+    <button type = "button" onclick = "Generate()" style = "width:200px; height:150;">Generate</button>
+    
+    <p id = "displayText" style = "font-size: 30px;"></p>
     
 </body>
 </html>
