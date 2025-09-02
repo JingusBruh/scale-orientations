@@ -16,6 +16,7 @@ function Generate(){
     if(document.getElementById("chromatic").checked){
         possibleScales.push("Chroma");
         //console.log(allVariations);
+        finalLength = possibleScales.length;
     }
 
     for(i = 0; i < finalLength; i++){
