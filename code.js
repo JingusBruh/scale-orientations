@@ -1,7 +1,22 @@
 //const possibleScales = ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab"];
+function onLoad(){
+    const customCheck = document.getElementById("custom");
+    const customText = document.getElementById("customInput"); 
+    //console.log(customCheck, customText);
+    customCheck.addEventListener("change", function(){
+        if(this.checked){customText.style.display = "block";}
+        else{customText.style.display = "none";}
+        console.log("function ran");
+    });
+}
 
 function Generate(){
-    const possibleScales = ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab"];
+    const customCheck = document.getElementById("custom");
+    const customText = document.getElementById("customInput"); 
+    var possibleScales = ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab"];
+    if(customCheck.checked){
+        possibleScales = customText.value.split(",");
+    }
     const variations = ["S2T2", "T", "S4", "S", "T1S2T1", "T2S2", "S2T2T2S2", "T2S2S2T2", "S3T1", "T1S3"];
     const tripletVariations = ["S2T1", "T1S2", "S", "T"];
     const allVariations = [];
@@ -52,4 +67,17 @@ function Generate(){
     }
 
     displayText.innerHTML = finalString;
+}
+
+//document.getElementById("display").addEventListener("click", Generate);
+
+function Clear(){
+    const checkBoxes = document.getElementsByClassName("check-box");
+    /*Array.from(checkBoxes).foreach(function(currentValue){
+        currentValue.firstChild.checked = false;
+    });*/
+    for (const checkBox of checkBoxes){
+        checkBox.children[0].checked = false;
+        //firstChild not working?
+    }
 }

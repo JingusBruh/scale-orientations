@@ -5,28 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Orientations</title>
     <link rel="icon" type="image/x-icon" href="Icons/Icon.png">
+    <style>
+        .flex-container{
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction:column;
+            height:75px;
+        }
+    </style>
 </head>
 <script src="code.js"></script>
-<body style = background-color:azure>
+<body style = background-color:azure onload = "onLoad()">
     
     <img src = "Icons/Icon.png" width="30px" height="30px" style = "float:left"> 
     <h3 style = "font-family:Arial, Helvetica, sans-serif;">Scale Orientations</h3>
 
     <p style = "font-family: sans-serif;"> This website generates a list of random scales for practice, scales go up to 4 sharps and 4 flats, click generate to make a new random list of scales</p>
 
-    <div style = "background-color:rgb(200, 245, 245);">
-        <input type = "checkbox" id = "variations">
-        <label for = "variations">Variations</label><br>
-        
-        <input type = "checkbox" id = "triplet variations">
-        <label for = "triplet variations">Triplet Variations</label><br>
-        
-        <input type = "checkbox" id = "chromatic">
-        <label for = "chromatic">Chromatic</label>
-        
+    <div style = "background-color:rgb(200, 245, 245);"class = "flex-container">
+        <div class = "check-box">
+            <input type = "checkbox" id = "variations">
+            <label for = "variations">Variations</label>
+        </div>
+        <div class = "check-box">
+            <input type = "checkbox" id = "triplet variations">
+            <label for = "triplet variations">Triplet Variations</label>
+        </div>
+        <div class = "check-box">
+            <input type = "checkbox" id = "chromatic">
+            <label for = "chromatic">Chromatic</label>
+        </div>
+        <div class = "check-box">
+            <input type = "checkbox" id = "custom">
+            <label for = "custom">Custom</label>
+            <input type = "text" id = "customInput"  style = "display:none" value = "C, G, D, A, E, F, Bb, Eb, Ab">
+        </div>
     </div>
     <button type = "button" onclick = "Generate()" style = "width:200px; height:150;">Generate</button>
-    <div style = "background-color: rgb(200, 245, 245); text-align: center;">
+    <button type = "button" onclick = "Clear()" style = "width:200px; height:150;">Clear Selections</button>
+    <div style = "background-color: rgb(200, 245, 245); text-align: center;" id = "display">
         <p id = "displayText" style = "font-size: 30px;"> Click generate</p>
     </div>
 </body>
