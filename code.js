@@ -30,7 +30,7 @@ function Generate(){
     const displayText = document.getElementById("displayText");
 
     if(document.getElementById("chromatic").checked){
-        possibleScales.push("Chroma");
+        possibleScales.push("<span style = 'color:green'>Chroma</span>");
         //console.log(allVariations);
         finalLength = possibleScales.length;
     }
@@ -55,7 +55,7 @@ function Generate(){
         //console.log(allVariations);
     }
 
-    console.log(finalOrientation);
+    //console.log(finalOrientation);
 
     /*for(i = 0; i < finalOrientation.length; i++){
         finalString += "<span>";
@@ -92,7 +92,7 @@ function Generate(){
         }
         newScale.innerHTML += "<br>";
 
-        console.log("element created");
+        //console.log("element created");
     }
 
     //displayText.innerHTML = finalString;
@@ -102,6 +102,8 @@ function Generate(){
 
 function Clear(){
     const checkBoxes = document.getElementsByClassName("check-box");
+    const customText = document.getElementById("customInput");
+    customText.style.display = "none";
     /*Array.from(checkBoxes).foreach(function(currentValue){
         currentValue.firstChild.checked = false;
     });*/
