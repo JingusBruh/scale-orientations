@@ -85,8 +85,13 @@ function Generate(){
         
         displayDiv.appendChild(newScale);
         newScale.classList.add("fade-in-text");
-        newScale.innerHTML = finalOrientation[i] + "<br>";
-        
+
+        newScale.innerHTML = finalOrientation[i];
+        if(allVariations.length > 0){
+            newScale.innerHTML += "<span style = color:red>" +"[" + allVariations[Math.floor(Math.random() * allVariations.length)] + "]" + "</span>";
+        }
+        newScale.innerHTML += "<br>";
+
         console.log("element created");
     }
 
