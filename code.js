@@ -25,6 +25,7 @@ function Generate(){
     let finalString = "";
     let randomIndex = Math.floor(Math.random()*possibleScales.length);
     let finalLength = possibleScales.length;
+    let cleared = false;
 
     const displayText = document.getElementById("displayText");
 
@@ -56,17 +57,40 @@ function Generate(){
 
     console.log(finalOrientation);
 
-    for(i = 0; i < finalOrientation.length; i++){
+    /*for(i = 0; i < finalOrientation.length; i++){
+        finalString += "<span>";
         finalString += finalOrientation[i];
 
         if(allVariations.length > 0){
             finalString += "<span style = color:red>" +"[" + allVariations[Math.floor(Math.random() * allVariations.length)] + "]" + "</span>";
         }
 
+        finalString += "<span>";
         finalString += "<br>";
+    }*/
+
+    
+    for(i=0; i<finalOrientation.length;i++){
+        const displayDiv = document.getElementById("display");
+        if(!cleared){
+            displayDiv.innerHTML = "";
+            cleared = true;
+        }
+
+        const newScale = document.createElement("span");
+        newScale.style.animationFillMode = "forwards";
+        newScale.style.fontSize = "30px";
+        newScale.style.opacity = 0;
+        newScale.style.animationDelay = i * 0.05 + "s";
+        
+        displayDiv.appendChild(newScale);
+        newScale.classList.add("fade-in-text");
+        newScale.innerHTML = finalOrientation[i] + "<br>";
+        
+        console.log("element created");
     }
 
-    displayText.innerHTML = finalString;
+    //displayText.innerHTML = finalString;
 }
 
 //document.getElementById("display").addEventListener("click", Generate);
