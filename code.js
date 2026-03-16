@@ -1,11 +1,13 @@
 //const possibleScales = ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab"];
 function onLoad(){
     const customCheck = document.getElementById("custom");
-    const customText = document.getElementById("customInput"); 
+    const customText = document.getElementById("customInput");
+    const customLabel = document.getElementById("customLabel"); 
+    console.log(customLabel);
     //console.log(customCheck, customText);
     customCheck.addEventListener("change", function(){
-        if(this.checked){customText.style.display = "block";}
-        else{customText.style.display = "none";}
+        if(this.checked){customLabel.style.display = "none";customText.style.display = "inline-block";}
+        else{customLabel.style.display = "inline-block";customText.style.display = "none";}
         console.log("function ran");
     });
 }
@@ -52,6 +54,7 @@ function Generate(){
         }
         
         allVariations.push(...tripletVariations);
+        //... unpacks the array and .pushes each element
         //console.log(allVariations);
     }
 
@@ -78,13 +81,20 @@ function Generate(){
         }
 
         const newScale = document.createElement("span");
-        newScale.style.animationFillMode = "forwards";
         newScale.style.fontSize = "30px";
-        newScale.style.opacity = 0;
-        newScale.style.animationDelay = i * 0.05 + "s";
-        
+
+        if(!document.getElementById("animFix").checked){
+            newScale.style.opacity = 0;
+           
+            newScale.style.animationFillMode = "forwards";
+            newScale.style.animationDelay = i * 0.05 + "s";
+            newScale.classList.add("fade-in-text");       
+        }
+        else{
+            newScale.style.opacity = 100;
+        }
+
         displayDiv.appendChild(newScale);
-        newScale.classList.add("fade-in-text");
 
         newScale.innerHTML = finalOrientation[i];
         if(allVariations.length > 0){

@@ -47,7 +47,7 @@
 
         .fade-in-text{
             animation-name:"fade-in";
-            animation-duration: 0.5s;
+            animation-duration: 0.4s;
         }
 
         #banner{
@@ -85,7 +85,7 @@
     
     <hr style = "background-color:rgb(174, 219, 219); height:3px; border:none; margin:0px;">
 
-    <p style="text-align:center;"> This website generates a list of random scales for practice, scales go up to 4 sharps and 4 flats by default, click generate to make a new random list of scales</p>
+    <p style="text-align:center; padding: 15px;"> This website generates a list of random scales for practice, scales go up to 4 sharps and 4 flats by default, click generate to make a new random list of scales</p>
 
     <div style = "background-color:rgb(200, 245, 245); padding:15px; margin:15px;" class = "flex-container">
         <div class = "check-box">
@@ -101,8 +101,12 @@
             <label for = "chromatic">Chromatic</label>
         </div>
         <div class = "check-box">
+            <input type = "checkbox" id = "animFix">
+            <label for = "animFix">Animation Fix</label>
+        </div>
+        <div class = "check-box">
             <input type = "checkbox" id = "custom" style = "display:inline-block;">
-            <label for = "custom" style = "display:inline-block;">Custom</label>
+            <label for = "custom" id = "customLabel" style = "display:inline-block;">Custom</label>
             <input type = "text" id = "customInput"  style = "display:none" value = "C, G, D, A, E, F, Bb, Eb, Ab" style = "display:inline-block;">
         </div>
     </div>
