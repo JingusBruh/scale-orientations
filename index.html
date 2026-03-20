@@ -17,14 +17,47 @@
         }
 
         .flex-container{
-            border: 2px solid transparent;
-            padding: 10px;
+            border: none;
             display:flex;
             flex-wrap:wrap;
             flex-direction:column;
             height: 60px;
             /*border-image: url(Frame.png) 16 round;*/
             border-radius: 5px;
+            border-top-right-radius: 0px;
+            background-color:rgb(200, 245, 245);
+            padding:15px;
+            margin:15px;
+            margin-top:0px;
+        }
+
+        .tab-container{
+            margin: 15px;
+            margin-bottom: 0px;
+            display:flex;
+            justify-content: right;
+            gap: 0px;
+        }
+
+        .custom-tab-selected{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color:rgb(200, 245, 245) ;
+            border: 2px solid transparent;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .custom-tab-unselected{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(174, 219, 219);
+            border: 2px solid transparent;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            transition-duration: 0.4s;
+        }
+
+        .custom-tab-unselected:hover{
+            background-color: rgb(163, 205, 205);
         }
 
         .button-container{
@@ -34,7 +67,7 @@
         }
 
         .custom-button{
-            border: 2px solid transparent;
+            border: none;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             border-radius: 5px;
             transition-duration: 0.4s;
@@ -85,31 +118,40 @@
     
     <hr style = "background-color:rgb(174, 219, 219); height:3px; border:none; margin:0px;">
 
-    <p style="text-align:center; padding: 15px;"> This website generates a list of random scales for practice, scales go up to 4 sharps and 4 flats by default, click generate to make a new random list of scales</p>
+    <p style="text-align:center; padding: 5px;"> This website generates a list of random scales for practice, scales go up to 4 sharps and 4 flats by default, click generate to make a new random list of scales</p>
 
-    <div style = "background-color:rgb(200, 245, 245); padding:15px; margin:15px;" class = "flex-container">
-        <div class = "check-box">
+    <div class = "tab-container" id = "tabContainer">
+        <button class = "custom-tab-selected" type = "button" onclick="OpenContent('preferences',this)">Preferences</button>
+        <button class = "custom-tab-unselected" type = "button" onclick="OpenContent('settings',this)">Settings</button>
+    </div>
+
+    <div class = "flex-container" id = "preferences">
+        <div class = "preferences-check-box">
             <input type = "checkbox" id = "variations">
             <label for = "variations">Variations</label>
         </div>
-        <div class = "check-box">
+        <div class = "preferences-check-box">
             <input type = "checkbox" id = "triplet variations">
             <label for = "triplet variations">Triplet Variations</label>
         </div>
-        <div class = "check-box">
+        <div class = "preferences-check-box">
             <input type = "checkbox" id = "chromatic">
             <label for = "chromatic">Chromatic</label>
         </div>
-        <div class = "check-box">
-            <input type = "checkbox" id = "animFix">
-            <label for = "animFix">Animation Fix</label>
-        </div>
-        <div class = "check-box">
+        <div class = "preferences-check-box">
             <input type = "checkbox" id = "custom" style = "display:inline-block;">
             <label for = "custom" id = "customLabel" style = "display:inline-block;">Custom</label>
             <input type = "text" id = "customInput"  style = "display:none" value = "C, G, D, A, E, F, Bb, Eb, Ab" style = "display:inline-block;">
         </div>
     </div>
+
+    <div class = "flex-container" style="display: none;" id = "settings">
+         <div class = "settings-check-box">
+            <input type = "checkbox" id = "animFix">
+            <label for = "animFix">Animation Fix</label>
+        </div>
+    </div>
+
     <div class = "button-container" style = "margin:20px;">
         <button class = "custom-button" type = "button" onclick = "Generate()" style = "width:200px; height:150;">Generate</button>
         <button class = "custom-button" type = "button" onclick = "Clear()" style = "width:200px; height:150;">Clear Selections</button>

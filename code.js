@@ -111,9 +111,11 @@ function Generate(){
 //document.getElementById("display").addEventListener("click", Generate);
 
 function Clear(){
-    const checkBoxes = document.getElementsByClassName("check-box");
+    const checkBoxes = document.getElementsByClassName("preferences-check-box");
     const customText = document.getElementById("customInput");
+    const customLabel = document.getElementById("customLabel");
     customText.style.display = "none";
+    customLabel.style.display = "inline-block";
     /*Array.from(checkBoxes).foreach(function(currentValue){
         currentValue.firstChild.checked = false;
     });*/
@@ -121,4 +123,22 @@ function Clear(){
         checkBox.children[0].checked = false;
         //firstChild not working?
     }
+}
+
+function OpenContent(contentName, element){
+    
+    const tabs = document.getElementById("tabContainer");
+    const contents = document.getElementsByClassName("flex-container");
+    
+    for(const content of contents){
+        content.style.display = "none";
+    }
+
+    document.getElementById(contentName).style.display = "flex";
+
+    for(const tab of tabs.children){
+        tab.className = "custom-tab-unselected";
+    }
+
+    element.className = "custom-tab-selected";
 }
