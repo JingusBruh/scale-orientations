@@ -1,4 +1,7 @@
 //const possibleScales = ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab"];
+
+var tabOpened = "preferences";
+
 function onLoad(){
     const customCheck = document.getElementById("custom");
     const customText = document.getElementById("customInput");
@@ -71,7 +74,6 @@ function Generate(){
         finalString += "<span>";
         finalString += "<br>";
     }*/
-
     
     for(i=0; i<finalOrientation.length;i++){
         const displayDiv = document.getElementById("display");
@@ -111,11 +113,15 @@ function Generate(){
 //document.getElementById("display").addEventListener("click", Generate);
 
 function Clear(){
-    const checkBoxes = document.getElementsByClassName("preferences-check-box");
-    const customText = document.getElementById("customInput");
-    const customLabel = document.getElementById("customLabel");
-    customText.style.display = "none";
-    customLabel.style.display = "inline-block";
+    var checkBoxes = document.getElementsByClassName(tabOpened + "-check-box");
+    if(tabOpened == "preferences"){
+        //checkBoxes = document.getElementsByClassName("preferences-check-box");
+        const customText = document.getElementById("customInput");
+        const customLabel = document.getElementById("customLabel");
+        customText.style.display = "none";
+        customLabel.style.display = "inline-block";
+    }
+    
     /*Array.from(checkBoxes).foreach(function(currentValue){
         currentValue.firstChild.checked = false;
     });*/
@@ -125,8 +131,12 @@ function Clear(){
     }
 }
 
-function OpenContent(contentName, element){
-    
+function OpenContent(contentName, element){   
+
+    tabOpened = contentName;
+
+    console.log(tabOpened);
+
     const tabs = document.getElementById("tabContainer");
     const contents = document.getElementsByClassName("flex-container");
     
