@@ -5,13 +5,29 @@ var tabOpened = "preferences";
 function onLoad(){
     const customCheck = document.getElementById("custom");
     const customText = document.getElementById("customInput");
-    const customLabel = document.getElementById("customLabel"); 
-    console.log(customLabel);
+    const customLabel = document.getElementById("customLabel");
+    
+    const legacyIconCheck = document.getElementById("legacyIcon");
+    //console.log(customLabel);
     //console.log(customCheck, customText);
     customCheck.addEventListener("change", function(){
         if(this.checked){customLabel.style.display = "none";customText.style.display = "inline-block";}
         else{customLabel.style.display = "inline-block";customText.style.display = "none";}
         console.log("function ran");
+    });
+
+    legacyIconCheck.addEventListener("change", function(){
+        var favicon = document.getElementById("favicon");
+        var icon = document.getElementById("icon");
+        console.log(icon);
+        if(this.checked){
+            favicon.href = "Images/Icon.png";
+            icon.src = "Images/Icon.png";
+        }
+        else{
+            favicon.href = "Images/New-icon.png";
+            icon.src = "Images/New-icon.png";
+        }
     });
 }
 
@@ -126,7 +142,14 @@ function Clear(){
         currentValue.firstChild.checked = false;
     });*/
     for (const checkBox of checkBoxes){
+        var favicon = document.getElementById("favicon");
+        var icon = document.getElementById("icon");
+
+        favicon.href = "Images/New-icon.png";
+        icon.src = "Images/New-icon.png";
+
         checkBox.children[0].checked = false;
+        //checkBox.dispatchEvent(new Event("change"));
         //firstChild not working?
     }
 }

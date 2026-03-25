@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Orientations</title>
-    <link rel="icon" type="image/x-icon" href="Images/New-icon.png">
+    <link rel="icon" type="image/x-icon" href="Images/New-icon.png" id = "favicon">
     <style>
 
         @keyframes fade-in {
@@ -74,7 +74,7 @@
         }
 
         .custom-button:hover{
-            background-color: rgb(200, 245, 245);
+            background-color: rgb(221, 221, 221);
             color:auto;
         }
 
@@ -112,7 +112,7 @@
 <script src="code.js"></script>
 <body onload = "onLoad()">
     <div id="banner">
-        <img src = "Images/New-icon.png" width="50px" height="50px" style = "float:left"> 
+        <img src = "Images/New-icon.png" width="50px" height="50px" style = "float:left" id = "icon"> 
         <h3 style = "margin:0;"><i>Scale Orientations</i></h3>
     </div>
     
@@ -146,9 +146,13 @@
     </div>
 
     <div class = "flex-container" style="display: none;" id = "settings">
-         <div class = "settings-check-box">
+        <div class = "settings-check-box">
             <input type = "checkbox" id = "animFix">
             <label for = "animFix">Animation Fix</label>
+        </div>
+        <div class = "settings-check-box">
+            <input type = "checkbox" id = "legacyIcon">
+            <label for = "legacyIcon">Legacy Icon</label>
         </div>
     </div>
 
